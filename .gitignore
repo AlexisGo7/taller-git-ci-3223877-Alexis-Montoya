@@ -1,0 +1,23 @@
+# .gitignore
+
+# Directorios de dependencias de Node.js
+# Esto es esencial. ¡Nunca subir node_modules!
+/node_modules
+/npm-debug.log*
+/yarn-debug.log*
+/yarn-error.log*
+
+# Directorios de compilación y temporales
+# Usado si compilaras el JS a otro destino
+/dist
+/build
+/temp
+
+# Archivos del sistema operativo y logs
+.DS_Store # macOS
+Thumbs.db # Windows
+*.log
+
+# Archivos de entorno y configuración local
+.env
+.vscode/ # Ignorar configuraciones específicas de tu IDE, aunque el instructor podría pedir lo contrario, es buena práctica.

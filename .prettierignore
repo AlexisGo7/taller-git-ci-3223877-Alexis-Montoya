@@ -1,0 +1,16 @@
+# .prettierignore
+
+# Directorio de paquetes de Node.js (SIEMPRE IGNORAR)
+/node_modules
+
+# Directorio de compilación o distribución (si existiera)
+/dist
+
+# Archivos de logs
+*.log
+
+# Scripts de shell (opcional, si no quieres que Prettier los toque)
+*.sh
+
+# Ignorar la carpeta de tests para mantener la CI simple (si ya lo formateaste manualmente)
+/tests
