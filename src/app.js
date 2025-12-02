@@ -8,4 +8,18 @@ export function suma(a, b) {
   return a + b;
 }
 
+export function agregarItem(texto) {
+    const lista = document.getElementById('lista');
+    if (lista) {
+        const nuevoLi = document.createElement('li');
+        nuevoLi.textContent = texto;
+        lista.appendChild(nuevoLi);
+    }
+}
+
+// <-- Nuevo: Exponer la función para que el HTML la encuentre
+if (typeof window !== 'undefined') {
+    window.agregarItem = agregarItem;
+}
+
 console.log("App lista");
