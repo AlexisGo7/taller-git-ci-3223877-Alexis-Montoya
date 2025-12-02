@@ -1,38 +1,38 @@
 name: CI Checks (Prettier & Test) # Nombre del flujo de trabajo
 
 on:
-  push:
-    # Se ejecuta en cada push a main y a ramas de característica (feature)
-    branches: [ "main", "feat/**" ]
-  pull_request:
-    # Se ejecuta en cada Pull Request que va hacia main
-    branches: [ "main" ]
+    push:
+        # Se ejecuta en cada push a main y a ramas de característica (feature)
+        branches: ['main', 'feat/**']
+    pull_request:
+        # Se ejecuta en cada Pull Request que va hacia main
+        branches: ['main']
 
 jobs:
-  validate:
-    runs-on: ubuntu-latest # Ejecuta el trabajo en una máquina virtual Linux
-    steps:
-      - name: 1. Checkout code
-        # Descarga el código del repositorio
-        uses: actions/checkout@v4
+    validate:
+        runs-on: ubuntu-latest # Ejecuta el trabajo en una máquina virtual Linux
+        steps:
+            - name: 1. Checkout code
+              # Descarga el código del repositorio
+              uses: actions/checkout@v4
 
-      - name: 2. Set up Node.js
-        # Configura el entorno de Node.js (necesario para npm, prettier y tests)
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20' # Versión de Node.js
+            - name: 2. Set up Node.js
+              # Configura el entorno de Node.js (necesario para npm, prettier y tests)
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '20' # Versión de Node.js
 
-      # --- TRABAJO 1: VERIFICACIÓN DE FORMATO CON PRETTIER ---
-      - name: 3. Install Dependencies (Prettier)
-        # Instala Prettier (asumiendo que está listado en package.json o se instala globalmente)
-        run: npm install prettier
+            # --- TRABAJO 1: VERIFICACIÓN DE FORMATO CON PRETTIER ---
+            - name: 3. Install Dependencies (Prettier)
+              # Instala Prettier (asumiendo que está listado en package.json o se instala globalmente)
+              run: npm install prettier
 
-      - name: 4. Run Prettier Check
-        # Ejecuta Prettier con el flag --check. Si encuentra errores de formato, FALLA.
-        # Usa .prettierrc.json y .prettierignore para las reglas.
-        run: npx prettier --check .
-        
-      # --- TRABAJO 2: EJECUCIÓN DE TESTS SIMPLES ---
-      - name: 5. Run Tests
-        # Ejecuta el test simple de la suma directamente con Node
-        run: node tests/suma.test.js
+            - name: 4. Run Prettier Check
+              # Ejecuta Prettier con el flag --check. Si encuentra errores de formato, FALLA.
+              # Usa .prettierrc.json y .prettierignore para las reglas.
+              run: npx prettier --check .
+
+            # --- TRABAJO 2: EJECUCIÓN DE TESTS SIMPLES ---
+            - name: 5. Run Tests
+              # Ejecuta el test simple de la suma directamente con Node
+              run: node tests/suma.test.js

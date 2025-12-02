@@ -24,8 +24,8 @@ export function agregarItem(texto) {
 // La función inicializarApp encapsula toda la lógica de inicialización.
 function inicializarApp() {
     // 💡 Aplicación de la SUGERENCIA de FIX:
-    console.log("App lista: UI y lógica cargada"); 
-    
+    console.log('App lista: UI y lógica cargada');
+
     // Expone la función para que el HTML la pueda llamar globalmente
     if (typeof window !== 'undefined') {
         window.agregarItem = agregarItem;
