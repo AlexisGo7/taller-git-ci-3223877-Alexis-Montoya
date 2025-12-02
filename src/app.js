@@ -5,7 +5,7 @@
  * @returns {number}
  */
 export function suma(a, b) {
-  return a + b;
+    return a + b;
 }
 
 export function agregarItem(texto) {
@@ -22,4 +22,13 @@ if (typeof window !== 'undefined') {
     window.agregarItem = agregarItem;
 }
 
-console.log("App lista");
+console.log('App lista');
+
+function inicializarApp() {
+    console.log('App lista');
+    if (typeof window !== 'undefined') {
+        window.agregarItem = agregarItem;
+    }
+}
+
+inicializarApp(); // Llamamos a la función
